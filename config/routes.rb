@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   # A user can create a new list
   # GET "lists/new"
   # POST "lists"
-  resources :lists, only: %i[create index new show]
+  resources :lists, only: %i[create index new show] do
+    resources :bookmarks, only: %i[create new destroy]
+  end
 end
