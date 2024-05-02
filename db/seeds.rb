@@ -13,14 +13,13 @@ require 'rest-client'
 
 response = RestClient.get 'https://tmdb.lewagon.com/movie/top_rated'
 response_ids = JSON.parse(response)
-puts response_ids["results"][0]["original_title"]
 
-response_ids["results"].each do |movie|
+response_ids['results'].each do |movie|
   puts 'Creating movie'
   new_movie = Movie.new(
-    title: movie["original_title"],
-    overview: movie["overview"],
-    poster_url: movie["poster_path"]
+    title: movie['original_title'],
+    overview: movie['overview'],
+    poster_url: movie['poster_path']
   )
   new_movie.save!
   puts 'Finished!'
