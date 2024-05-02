@@ -11,6 +11,7 @@
 require 'json'
 require 'rest-client'
 
+Movie.destroy_all
 response = RestClient.get 'https://tmdb.lewagon.com/movie/top_rated'
 response_ids = JSON.parse(response)
 
